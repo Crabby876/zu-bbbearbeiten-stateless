@@ -1,4 +1,7 @@
 from dataclasses import dataclass
+import operator
+
+
 
 items = []
 
@@ -24,3 +27,7 @@ def get(index):
 
 def update(index):
     items[index].isCompleted = not items[index].isCompleted
+    
+def add(title, date):
+    items.append(Item(title, date))
+    items.sort(key=operator.attrgetter("date"))
